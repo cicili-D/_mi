@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="http://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </head>
 <body>
     <div>这个文本是一个改动，虽然我饿也不知道能不能合并分支合并起。</div>
     <div>这是dj写的一个块</div>
-    <div>cici写了它</div>
+    <div di="paa">cici写了它</div>
+    <button onclick="upDate()">点击</button>
+    <script>
+        function upDate(){
+            var xmlhttp;
+            if(window.XMLHttpRequest)
+            {
+                xmlhttp=new XMLHttpRequest();
+            }else{
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+             {
+                 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                 {
+                     ducument.getElementById("paa").innerHTML=xmlhttp.responseText;
+                 }
+             }
+             xmlhttp.open("GET","https://www.apishop.net/#/api/detail/?productID=215",true);
+             xmlhttp.send();
+        }
+        
+    </script> 
 </body>
 </html>
